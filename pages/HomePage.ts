@@ -22,7 +22,7 @@ export class HomePage extends BasePage {
 
   async goToProducts() {
     await Promise.all([
-      this.page.waitForURL('**/products'),
+      this.page.waitForURL('**/products', { waitUntil: 'domcontentloaded' }),
     await this.productsLink.click(),
     ]);
   }
