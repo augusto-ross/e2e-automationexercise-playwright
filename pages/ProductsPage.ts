@@ -22,10 +22,10 @@ export class ProductsPage extends BasePage {
   }
 
   async assertLoaded() {
-    await this.page.waitForURL(/\/products/i);
-    await expect(this.page.locator('.features_items')).toBeVisible();
+    await this.page.waitForURL(/\/products/i, { waitUntil: 'domcontentloaded' });
+    await expect(this.title).toBeVisible();
     await expect(this.productCards.first()).toBeVisible();
-  }
+}
 
   async assertSearchResultsVisible() {
     await expect(this.searchedProductsTitle).toBeVisible();

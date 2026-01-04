@@ -7,6 +7,7 @@ export default defineConfig({
   fullyParallel: true,
   retries: process.env.CI ? 2 : 0,
   reporter: [['html', { open: 'never' }], ['list']],
+  workers: 1,
   use: {
     baseURL: 'https://automationexercise.com',
     headless: true,
