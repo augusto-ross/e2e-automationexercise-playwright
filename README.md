@@ -1,43 +1,33 @@
 # QA E2E Automation – Automation Exercise
 
-This repository contains an end-to-end (E2E) test automation project built using **Playwright + TypeScript**, applying the **Page Object Model (POM)** pattern.
+Welcome to this E2E test automation project! This repository showcases a robust automation framework built with **Playwright** and **TypeScript**, designed to test the [Automation Exercise](https://automationexercise.com/) e-commerce platform.
 
-The goal of this project is to demonstrate a structured and maintainable approach to QA automation, focusing on critical user flows and realistic testing scenarios.
-
----
+The main goal here is to move beyond simple script execution and demonstrate a scalable, maintainable architecture using the **Page Object Model (POM)**.
 
 ## 🎯 Project Objectives
 
-- Automate critical E2E flows of a demo e-commerce application
-- Apply good practices for test automation architecture
-- Use Playwright features to create stable and reliable tests
-- Demonstrate QA reasoning beyond tool usage
-
----
+I built this project to:
+- Automate critical user flows (like searching and browsing products).
+- Showcase architectural best practices in QA.
+- Leverage Playwright's modern features for stability.
+- Highlight the reasoning behind automation strategies, not just the code.
 
 ## 🧪 System Under Test
 
 - **Website:** https://automationexercise.com/
-- **Domain:** E-commerce demo application
-- **Main features tested:**
-  - Home navigation
-  - Product search
-  - Product listing and visibility
-  - (More scenarios to be added incrementally)
-
----
+- **Domain:** E-commerce demo
+- **Key Scenarios:** Home navigation, product search, and listing validation.
 
 ## 🧰 Tech Stack
 
-- **Test Framework:** Playwright
+- **Framework:** Playwright
 - **Language:** TypeScript
-- **Test Type:** End-to-End (E2E)
 - **Pattern:** Page Object Model (POM)
-- **Assertions:** Playwright built-in `expect`
-
----
+- **Assertions:** Playwright's built-in `expect`
 
 ## 🗂 Project Structure
+
+Here is how the code is organized:
 
 ```
 pages/
