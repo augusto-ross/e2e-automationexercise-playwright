@@ -4,7 +4,9 @@ Welcome to this E2E test automation project! This repository showcases a robust 
 
 The main goal here is to move beyond simple script execution and demonstrate a scalable, maintainable architecture using the **Page Object Model (POM)**.
 
-## 🎯 Project Objectives
+Note: This README will be updated as I move forward with the implementation.
+
+## Project Objectives
 
 I built this project to:
 - Automate critical user flows (like searching and browsing products).
@@ -12,20 +14,20 @@ I built this project to:
 - Leverage Playwright's modern features for stability.
 - Highlight the reasoning behind automation strategies, not just the code.
 
-## 🧪 System Under Test
+## System Under Test
 
 - **Website:** https://automationexercise.com/
 - **Domain:** E-commerce demo
 - **Key Scenarios:** Home navigation, product search, and listing validation.
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - **Framework:** Playwright
 - **Language:** TypeScript
 - **Pattern:** Page Object Model (POM)
 - **Assertions:** Playwright's built-in `expect`
 
-## 🗂 Project Structure
+## Project Structure
 
 Here is how the code is organized:
 
@@ -56,7 +58,7 @@ playwright.config.ts
 
 ---
 
-## 🧠 Automation Strategy
+## Automation Strategy
 
 - Focus on **business-critical scenarios** instead of full coverage
 - Prefer **stable and semantic locators** (`getByRole`, visible text)
@@ -66,7 +68,7 @@ playwright.config.ts
 
 ---
 
-## ▶️ How to Run the Tests
+## How to Run the Tests
 
 ### Install dependencies
 ```bash
