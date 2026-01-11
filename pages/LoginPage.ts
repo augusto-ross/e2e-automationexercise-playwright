@@ -51,7 +51,4 @@ export class LoginPage extends BasePage {
   
   }
 
-  async assertLoggedOut() {
-    await expect(this.loginButton).toBeVisible();
-  }
 }
