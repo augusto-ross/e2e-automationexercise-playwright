@@ -21,4 +21,15 @@ test.describe('Auth', () => {
     await login.login(user.email, user.password);
     await login.assertLoginError();
   });
+
+  test('should logout successfully', async ({ page }) => {
+    const login = new LoginPage(page);
+    const user = validUser;
+
+    await login.open();
+    await login.login(user.email, user.password);
+    await login.assertLoggedIn();
+    await login.logout();
+  });
+
 });
