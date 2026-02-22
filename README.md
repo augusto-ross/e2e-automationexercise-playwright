@@ -7,7 +7,7 @@ The main goal here is to move beyond simple script execution and demonstrate a s
 ## Project Objectives
 
 I built this project to:
-- Automate critical user flows (search, products, auth, contact, cart).
+- Automate critical user flows (registration, auth, search, products, cart, contact).
 - Showcase architectural best practices in QA.
 - Leverage Playwright's modern features for stability.
 - Highlight the reasoning behind automation strategies, not just the code.
@@ -16,7 +16,7 @@ I built this project to:
 
 - **Website:** https://automationexercise.com/
 - **Domain:** E-commerce demo
-- **Key Scenarios:** Home navigation, product search, product details, auth, contact, cart.
+- **Key Scenarios:** Registration, auth, product search, product details, cart management, contact form.
 
 ## Tech Stack
 
@@ -37,6 +37,7 @@ pages/
   HomePage.ts
   LoginPage.ts
   ProductsPage.ts
+  RegisterPage.ts
   SignupPage.ts
 
 tests/
@@ -45,6 +46,7 @@ tests/
     cart.spec.ts
     contact.spec.ts
     products.spec.ts
+    registration.spec.ts
     smoke.search.spec.ts
 
 utils/
@@ -82,11 +84,19 @@ playwright.config.ts
 
 ## Covered Scenarios
 
-- Smoke search for products
-- Product list and product detail validation
-- Add to cart and remove item
-- Contact form submission
-- Login with valid/invalid users and logout
+| TC | Description |
+|----|-------------|
+| TC1 | Register a new user successfully |
+| TC2 | Login with valid credentials |
+| TC3 | Login with invalid credentials |
+| TC4 | Logout |
+| TC5 | Register with an existing email (error validation) |
+| TC6 | Contact Us form submission |
+| TC8 | Product list and product detail page |
+| TC9 | Search for a product |
+| TC12 | Add multiple products to cart |
+| TC13 | Verify product quantity in cart |
+| TC17 | Remove product from cart |
 
 ---
 
