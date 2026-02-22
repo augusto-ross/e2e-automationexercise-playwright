@@ -109,20 +109,20 @@ npm install
 
 ### Run all tests (headless)
 ```bash
-npx playwright test
+npm test
 ```
 
 ### Run tests with browser UI
 ```bash
-npx playwright test --headed
+npm run test:headed
 ```
 
 ### Run tests in UI mode
 ```bash
-npx playwright test --ui
+npm run test:ui
 ```
 
 ### View HTML report
 ```bash
-npx playwright show-report
+npm run report
 ```

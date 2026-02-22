@@ -27,6 +27,13 @@ export class HomePage extends BasePage {
     ]);
   }
 
+  async goToCart() {
+    await Promise.all([
+      this.page.waitForURL('**/view_cart', { waitUntil: 'domcontentloaded' }),
+      this.page.locator('a[href="/view_cart"]').first().click(),
+    ]);
+  }
+
   async searchProduct(term: string) {
     await this.searchInput.fill(term);
     await this.searchButton.click();
