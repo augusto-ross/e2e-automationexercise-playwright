@@ -4,7 +4,7 @@ import { generateUser } from '../../utils/DataFactory';
 import { invalidUser, validUser } from '../../utils/testUsers';
 
 test.describe('Auth', () => {
-  test('should login with valid user', async ({ page }) => {
+  test('TC2 - should login with valid user', async ({ page }) => {
     const login = new LoginPage(page);
     const user = validUser;
 
@@ -13,7 +13,7 @@ test.describe('Auth', () => {
     await login.assertLoggedIn();
     });
 
-  test('should not login with invalid user', async ({ page }) => {
+  test('TC3 - should not login with invalid user', async ({ page }) => {
     const login = new LoginPage(page);
     const user = invalidUser;
 
@@ -22,7 +22,7 @@ test.describe('Auth', () => {
     await login.assertLoginError();
   });
 
-  test('should logout successfully', async ({ page }) => {
+  test('TC4 - should logout successfully', async ({ page }) => {
     const login = new LoginPage(page);
     const user = validUser;
 

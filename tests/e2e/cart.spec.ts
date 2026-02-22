@@ -4,7 +4,7 @@ import { ProductsPage } from '../../pages/ProductsPage';
 import { CartPage } from '../../pages/CartPage';
 
 test.describe('Cart', () => {
-  test('should add product to cart and remove it', async ({ page }) => {
+  test('TC17 - should add product to cart and remove it', async ({ page }) => {
     const home = new HomePage(page);
     const products = new ProductsPage(page);
     const cart = new CartPage(page);

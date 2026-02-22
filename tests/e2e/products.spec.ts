@@ -4,7 +4,7 @@ import {ProductsPage} from '../../pages/ProductsPage';
 
 
 test.describe('Products', () => {
-    test('should open product list and product details page', async ({page}) => {
+    test('TC8 - should open product list and product details page', async ({page}) => {
         const home = new HomePage(page);
         const products = new ProductsPage(page);
 

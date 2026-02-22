@@ -4,7 +4,7 @@ import { generateUser } from '../../utils/DataFactory';
 
 
 test.describe('Contact Us', () => {
-    test('should submit contact us form successfully', async ({ page }) => {
+    test('TC6 - should submit contact us form successfully', async ({ page }) => {
     const contact = new ContactPage(page);
     const userData = generateUser();
 
