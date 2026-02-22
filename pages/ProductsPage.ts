@@ -12,8 +12,7 @@ export class ProductsPage extends BasePage {
   readonly productName: Locator;
   readonly productPrice: Locator;
   readonly addToCartButton: Locator;
-
-
+  readonly quantityInput: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -26,8 +25,8 @@ export class ProductsPage extends BasePage {
     this.firstProductLink = this.productCards.first().getByRole('link', { name: /view product/i });
     this.productName = page.locator('.product-information h2');
     this.productPrice = page.locator('.product-information span').filter({ hasText: /^Rs\.\s*\d+/ });
-    this.addToCartButton = page.getByRole('button', { name: /add to cart/i });  
-
+    this.addToCartButton = page.getByRole('button', { name: /add to cart/i });
+    this.quantityInput = page.locator('#quantity');
   }
 
   async assertLoaded() {
@@ -72,5 +71,40 @@ export class ProductsPage extends BasePage {
     await expect(this.productName).toBeVisible();
     await expect(this.productPrice).toBeVisible();
     await expect(this.addToCartButton).toBeVisible();
+  }
+
+  async addNthProductToCartAndContinue(n: number) {
+    const card = this.productCards.nth(n);
+    await card.scrollIntoViewIfNeeded();
+    await card.hover();
+    await card.locator('.product-overlay a', { hasText: 'Add to cart' }).click();
+    await expect(this.addedModal).toBeVisible();
+    await this.continueShoppingButton.click();
+  }
+
+  async addNthProductToCartAndViewCart(n: number) {
+    const card = this.productCards.nth(n);
+    await card.scrollIntoViewIfNeeded();
+    await card.hover();
+    await card.locator('.product-overlay a', { hasText: 'Add to cart' }).click();
+    await expect(this.addedModal).toBeVisible();
+    await Promise.all([
+      this.page.waitForURL(/\/view_cart/i),
+      this.viewCartButton.click(),
+    ]);
+  }
+
+  async setQuantity(qty: number) {
+    await this.quantityInput.clear();
+    await this.quantityInput.fill(qty.toString());
+  }
+
+  async addToCartFromDetailAndViewCart() {
+    await this.addToCartButton.click();
+    await expect(this.addedModal).toBeVisible();
+    await Promise.all([
+      this.page.waitForURL(/\/view_cart/i),
+      this.viewCartButton.click(),
+    ]);
   }
 }

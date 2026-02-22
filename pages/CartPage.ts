@@ -37,4 +37,15 @@ export class CartPage extends BasePage {
 
     await expect(this.emptyCartMessage).toBeVisible();
   }
+
+  async assertItemCount(expectedCount: number) {
+    await this.assertLoaded();
+    await expect(this.cartRows).toHaveCount(expectedCount);
+  }
+
+  async assertFirstItemQuantity(expectedQty: number) {
+    await this.assertLoaded();
+    const qtyButton = this.cartRows.first().locator('.cart_quantity button');
+    await expect(qtyButton).toHaveText(expectedQty.toString());
+  }
 }
