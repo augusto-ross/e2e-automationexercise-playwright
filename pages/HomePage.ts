@@ -6,6 +6,7 @@ export class HomePage extends BasePage {
   readonly productsLink: Locator;
   readonly searchInput: Locator;
   readonly searchButton: Locator;
+  readonly searchCategoryDropdown: Locator;
 
   constructor(page: Page) {
     super(page);
@@ -13,6 +14,7 @@ export class HomePage extends BasePage {
     this.productsLink = page.getByRole('link', { name: /products/i });
     this.searchInput = page.locator('#search_product'); 
     this.searchButton = page.locator('#submit_search');
+    this.searchCategoryDropdown = page.locator('.panel-group.category-products');
   }
 
   async open() {
@@ -42,5 +44,11 @@ export class HomePage extends BasePage {
   async goToTestCases() {
     await this.page.locator('a[href="/test_cases"]').first().click();
     await this.page.waitForURL('**/test_cases', { waitUntil: 'domcontentloaded' });
-  } 
+  }
+  
+  async selectCategory(category: string, subcategory: string) {
+    await this.searchCategoryDropdown.getByRole('link', { name: new RegExp(`\\b${category}\\b`, 'i') }).click();
+    await this.searchCategoryDropdown.getByRole('link', { name: subcategory }).click();
+    await this.page.waitForURL(/\/category_products\//);
+  }
 }

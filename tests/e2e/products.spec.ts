@@ -22,4 +22,21 @@ test.describe('Products', () => {
     await products.openFirstProduct();
     await products.assertProductDetailLoaded();
   });
+
+  test('TC18 - View Product Categories', async ({ page }) => {
+    const home = new HomePage(page);
+    
+
+    await home.open();
+    await expect(home.searchCategoryDropdown).toBeVisible();
+    await home.selectCategory('Women', 'Dress');
+
+    await expect(page).toHaveURL(/\/category_products\//);
+    await expect(page.getByRole('heading', { name: /dress products/i })).toBeVisible();
+
+    await home.selectCategory('Men', 'Tshirts');
+
+    await expect(page).toHaveURL(/\/category_products\//);
+    await expect(page.getByRole('heading', { name: /tshirts products/i })).toBeVisible();
+  });
 });
