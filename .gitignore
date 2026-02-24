@@ -2,6 +2,9 @@
 # Claude Code
 .claude/
 
+# Personal reference docs
+PLAYWRIGHT_REFERENCE.md
+
 # Playwright
 node_modules/
 /test-results/

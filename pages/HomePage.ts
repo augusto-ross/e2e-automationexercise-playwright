@@ -11,7 +11,7 @@ export class HomePage extends BasePage {
     super(page);
     this.logo = page.getByRole('link', { name: /automation/i });
     this.productsLink = page.getByRole('link', { name: /products/i });
-    this.searchInput = page.locator('#search_product'); // pode ajustar se mudar
+    this.searchInput = page.locator('#search_product'); 
     this.searchButton = page.locator('#submit_search');
   }
 
@@ -38,4 +38,9 @@ export class HomePage extends BasePage {
     await this.searchInput.fill(term);
     await this.searchButton.click();
   }
+
+  async goToTestCases() {
+    await this.page.locator('a[href="/test_cases"]').first().click();
+    await this.page.waitForURL('**/test_cases', { waitUntil: 'domcontentloaded' });
+  } 
 }
